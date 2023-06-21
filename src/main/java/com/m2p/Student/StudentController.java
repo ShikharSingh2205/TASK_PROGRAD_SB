@@ -18,12 +18,12 @@ public class StudentController {
 
 
     @GetMapping("/students")
-    public ResponseEntity<List<Student>> getAllStudents(){
+    public ResponseEntity<List<Student>> getAll(){
         return new ResponseEntity<>(studentService.getStudents(),HttpStatus.OK);
     }
 
     @GetMapping("/student/{id}")
-    public ResponseEntity<Student> getAStudent(@PathVariable Integer id){
+    public ResponseEntity<Student> getOne(@PathVariable Integer id){
         Student student = studentService.getStudent(id);
         if(student != null) {
             return new ResponseEntity<>(student,HttpStatus.OK);
